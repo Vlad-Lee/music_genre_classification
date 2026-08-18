@@ -6,18 +6,30 @@ This repo holds my individual contribution — EDA, preprocessing, and modeling 
 
 ## Notebooks
 
-- **`EDA_VL.ipynb`** — Exploratory analysis of the feature set: class balance, inter- and intra-feature-group correlation structure, per-feature distributions by genre, mutual information, and dimensionality reduction (PCA + t-SNE) to visualize class separability.
-- **`pre_processing_modeling_VL.ipynb`** — Preprocessing (filtering, splitting, scaling) and modeling: a majority-class baseline, logistic regression, random forest, XGBoost, and a feedforward neural network, each hyperparameter-tuned, plus feature importance via MDI, permutation importance, and SHAP.
+- **[`notebooks/01_eda.ipynb`](notebooks/01_eda.ipynb)** — Exploratory analysis of the feature set: class balance, inter- and intra-feature-group correlation structure, per-feature distributions by genre, mutual information, and dimensionality reduction (PCA + t-SNE) to visualize class separability.
+- **[`notebooks/02_preprocessing_modeling.ipynb`](notebooks/02_preprocessing_modeling.ipynb)** — Preprocessing (filtering, splitting, scaling) and modeling: a majority-class baseline, logistic regression, random forest, XGBoost, and a feedforward neural network, each hyperparameter-tuned, plus feature importance via MDI, permutation importance, and SHAP.
 
 ## Data
 
-Not included in this repo (large, and not mine to redistribute). The notebooks expect the FMA metadata files at `../data/raw/fma_metadata/`:
+Not included in this repo (large, and not mine to redistribute). The notebooks expect the FMA metadata files one level up from `notebooks/`, at `data/raw/fma_metadata/` (i.e. `../data/raw/fma_metadata/` relative to the notebooks):
 
 - `features.csv` — 518 pre-extracted audio features (MFCC, chroma, spectral contrast/bandwidth/centroid/rolloff, tonnetz, zero-crossing rate, RMSE — each summarized by mean, std, skew, kurtosis, min, max, median)
 - `tracks.csv` — track metadata, including top-level genre
 - `genres.csv` — genre hierarchy
 
-Get them from the [FMA dataset repo](https://github.com/mdeff/fma) (`fma_metadata.zip`).
+Get them from the [FMA dataset repo](https://github.com/mdeff/fma) (`fma_metadata.zip`). Expected layout:
+
+```
+music_genre_classification/
+├── notebooks/
+│   ├── 01_eda.ipynb
+│   └── 02_preprocessing_modeling.ipynb
+└── data/                      # not included, see above
+    └── raw/fma_metadata/
+        ├── features.csv
+        ├── tracks.csv
+        └── genres.csv
+```
 
 ## Approach
 
